@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="static/style.css">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="static/bootstrap.css">
+
+    <title>Nederlandse Werkwoorden</title>
+  </head>
+  <body>
+    <div class="container">
+
+      <div class="container modal-header d-flex justify-content-between align-items-end">
+        <h1 class="">NedWerk App</h1>
+        <div class="col-md-auto">
+          <div class="container">
+            <div class="row">
+              <div class="col">
+                <p id="app-mode-text" style="text-align:right" class="lead">Alfabetisch</p>
+              </div>
+              <div  style="text-align:right" class="col-md-auto">
+                <label class="switch">
+                  <input id="mode-switch" type="checkbox">
+                  <span class="slider round"></span>
+                </label>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <br>
+
+
+      <div style="text-align:center;font-size:1.25em" class="list-group-flush">
+        <div id="infinitief" class="visible"><li id="text_inf" class="list-group-item">Infinitief</li></div>
+        <div id="imperfectum" class="visible"><li id="text_imp" class="list-group-item">Imperfectum</li>
+        </div>
+        <div id="perfectum" class="visible"><li id="text_per" class="list-group-item">Perfectum</li></div>
+
+        <li class="list-group-item invisible"></li>
+        <div id="english-translation" class="visible"><li id="text_eng" class="list-group-item">Translation</li></div>
+        <li class="list-group-item invisible"></li>
+      </div>
+
+      <div style="margin:1%;text-align:center;font-size:2em" class="clearfix">
+        <button id="switch-conjugation" style= "width:40%" class="btn btn-primary btn-lg-medium" type="submit">Conjugate</button>
+        <button id="switch-english" style= "width:40%" class="btn btn-primary btn-lg-medium" type="submit">Translate</button>
+      </div>
+      <!-- <div class="clearfix"></div> -->
+      <div style= "margin:1%;text-align:center;font-size:2em" class="clearfix">
+        <button id="go-left" style= "width:40%" class="btn btn-primary btn-lg-medium" type="submit"><</button>
+        <button id="go-right" style= "width:40%" class="btn btn-primary btn-lg-medium" type="submit">></button>
+      </div>
+    </div>
+
+
+    <!-- <script>const data = [
+      ['eat', 'ate', 'eaten', 'comer'],
+      ['fly', 'flew', 'flown', 'volar'],
+      ['jump', 'jumped', 'jumped', 'saltar'],
+      ['set', 'set', 'set', 'montar']
+      ];
+    </script> -->
+    <script type="text/javascript" src="data/verbs_list.json"></script>
+
+    <script type="text/javascript" src="static/main.js"></script>
+  </body>
+</html>
