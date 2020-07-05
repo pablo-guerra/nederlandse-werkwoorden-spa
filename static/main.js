@@ -7,10 +7,18 @@ console.log(`Number of verbs loaded = ${verb_total_length}`);
 console.log('Inf number 1 = ' + data[current_verb_index][0]);
 //function to update the displayed text
 function updateDisplayedVerbs(verb_index = current_verb_index) {
-  document.getElementById("text_inf").innerHTML = data[current_verb_index][0];
-  document.getElementById("text_imp").innerHTML = data[current_verb_index][1];
-  document.getElementById("text_per").innerHTML = data[current_verb_index][2];
-  document.getElementById("text_eng").innerHTML = data[current_verb_index][3];
+  if(slider_ennl_state === false) {
+    document.getElementById("text_inf").innerHTML = data[current_verb_index][0];
+    document.getElementById("text_imp").innerHTML = data[current_verb_index][1];
+    document.getElementById("text_per").innerHTML = data[current_verb_index][2];
+    document.getElementById("text_eng").innerHTML = data[current_verb_index][3];
+  } else {
+    document.getElementById("text_inf").innerHTML = data[current_verb_index][3];
+    document.getElementById("text_imp").innerHTML = data[current_verb_index][1];
+    document.getElementById("text_per").innerHTML = data[current_verb_index][2];
+    document.getElementById("text_eng").innerHTML = data[current_verb_index][0];
+  }
+
 };
 // slider order variable
 function getRandomInt(min = 0, max = (verb_total_length - 1)) {
@@ -118,6 +126,14 @@ document.getElementById("switch-mode-trans").addEventListener("click", function(
   } else {
     slider_trans_state = false;
     document.getElementById("trans-mode-text").innerHTML = 'Test your knowledge of translations?';
+  };});
+//slider switch swap nl - eng modes
+let slider_ennl_state = false;
+document.getElementById("switch-mode-ennl").addEventListener("click", function(){
+  if(slider_ennl_state === false) {
+    slider_ennl_state = true;
+  } else {
+    slider_ennl_state = false;
   };});
 
 //Switch visibility of English translation

@@ -14,25 +14,25 @@
     <div class="container">
 
       <div class="container modal-header d-flex justify-content-between align-items-end">
-        <!-- <div style="margin-left:1%" class="">
-          <li class="media my-4"> -->
-            <img class="align-self-center mr-3" src="static/flag.png" alt="Dutch flag" width="60" height="60">
-            <h2 style="margin-left:1%" class="">Dutch Verbs Practice</h2>
-          <!-- </li>
-        </div>
-        <h2 style="margin-left:10%" class="">Dutch Verbs Practice</h2> -->
+        <img class="align-self-center mr-3" src="static/flag.png" alt="Dutch flag" width="60" height="60">
+        <h2 style="margin-left:1%" class="">Dutch Verbs Practice</h2>
       </div>
       <br>
 
 
       <div style="text-align:center;font-size:1.25em" class="list-group-flush">
         <div id="infinitief" class="visible"><li id="text_inf" class="list-group-item">Infinitief</li></div>
+        <li class="list-group-item invisible"></li>
+
+        <div id="english-translation" class="visible"><li id="text_eng" class="list-group-item">Translation</li></div>
+        <li class="list-group-item invisible"></li>
+
         <div id="imperfectum" class="visible"><li id="text_imp" class="list-group-item">Imperfectum</li>
         </div>
         <div id="perfectum" class="visible"><li id="text_per" class="list-group-item">Perfectum</li></div>
 
-        <li class="list-group-item invisible"></li>
-        <div id="english-translation" class="visible"><li id="text_eng" class="list-group-item">Translation</li></div>
+        <!-- <li class="list-group-item invisible"></li> -->
+        <!-- <div id="english-translation" class="visible"><li id="text_eng" class="list-group-item">Translation</li></div> -->
         <li class="list-group-item invisible"></li>
       </div>
 
@@ -40,7 +40,6 @@
         <button id="switch-conjugation" style= "width:40%" class="btn btn-primary btn-lg-medium" type="submit">Conjugate</button>
         <button id="switch-english" style= "width:40%" class="btn btn-primary btn-lg-medium" type="submit">Translate</button>
       </div>
-      <!-- <div class="clearfix"></div> -->
       <div style= "margin:1%;text-align:center;font-size:2em" class="clearfix">
         <button id="go-left" style= "width:40%" class="btn btn-primary btn-lg-medium" type="submit"><</button>
         <button id="go-right" style= "width:40%" class="btn btn-primary btn-lg-medium" type="submit">></button>
@@ -89,8 +88,8 @@
           <h5 id="conj-mode-text" style="margin-right:20px" class="lead">Test your knowledge of conjugations?</h5>
         </div>
       </li>
-<!-- 3 -->
-      <li class="media">
+<!-- 4 -->
+      <li class="media my-4">
         <label style="margin-right:20px" class="switch">
           <input id="switch-mode-trans" type="checkbox">
           <span class="slider round"></span>
@@ -99,15 +98,18 @@
           <h5 id="trans-mode-text" style="margin-right:20px" class="lead">Test your knowledge of translations?</h5>
         </div>
       </li>
+<!-- 5 -->
+      <li class="media">
+        <label style="margin-right:20px" class="switch">
+          <input id="switch-mode-ennl" type="checkbox">
+          <span class="slider round"></span>
+        </label>
+        <div class="media-body">
+          <h5 id="ennl-mode-text" style="margin-right:20px" class="lead">Swap English/Dutch infinitives</h5>
+        </div>
+      </li>
 <!-- end -->
     </ul>
-    <!-- <script>const data = [
-      ['eat', 'ate', 'eaten', 'comer'],
-      ['fly', 'flew', 'flown', 'volar'],
-      ['jump', 'jumped', 'jumped', 'saltar'],
-      ['set', 'set', 'set', 'montar']
-      ];
-    </script> -->
     <script type="text/javascript" src="data/verbs_list_short.json"></script>
     <script type="text/javascript" src="data/verbs_list_extended.json"></script>
     <script type="text/javascript" src="static/main.js"></script>
