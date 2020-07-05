@@ -14,22 +14,13 @@
     <div class="container">
 
       <div class="container modal-header d-flex justify-content-between align-items-end">
-        <h1 class="">NedWerk App</h1>
-        <div class="col-md-auto">
-          <div class="container">
-            <div class="row">
-              <div class="col">
-                <p id="app-mode-text" style="text-align:right" class="lead">Alfabetisch</p>
-              </div>
-              <div  style="text-align:right" class="col-md-auto">
-                <label class="switch">
-                  <input id="mode-switch" type="checkbox">
-                  <span class="slider round"></span>
-                </label>
-              </div>
-            </div>
-          </div>
+        <!-- <div style="margin-left:1%" class="">
+          <li class="media my-4"> -->
+            <img class="align-self-center mr-3" src="static/flag.png" alt="Dutch flag" width="60" height="60">
+            <h2 style="margin-left:1%" class="">Dutch Verbs Practice</h2>
+          <!-- </li>
         </div>
+        <h2 style="margin-left:10%" class="">Dutch Verbs Practice</h2> -->
       </div>
       <br>
 
@@ -55,8 +46,61 @@
         <button id="go-right" style= "width:40%" class="btn btn-primary btn-lg-medium" type="submit">></button>
       </div>
     </div>
+    <p></p>
 
-
+    <br>
+    <div style="margin-left:11%" class="">
+      <li class="media my-4">
+        <img class="align-self-center mr-3" src="static/menu.png" alt="menu tile">
+        <div style="margin-left:10px" class="media-body">
+          <h2 class="">Settings</h2>
+        </div>
+      </li>
+    </div>
+<!-- block -->
+    <ul  style="margin-left:10%" class="list-unstyled">
+<!-- 1 -->
+      <li class="media">
+        <label style="margin-right:20px" class="switch">
+          <input id="switch-mode-order" type="checkbox">
+          <span class="slider round"></span>
+        </label>
+        <div class="media-body">
+          <h5 id="order-mode-text"  style="margin-right:20px" class="lead">Alfabetische volgorde (Alphabetical order)</h5>
+        </div>
+      </li>
+<!-- 2 -->
+      <li class="media my-4">
+        <label style="margin-right:20px" class="switch">
+          <input id="switch-mode-amount" type="checkbox">
+          <span class="slider round"></span>
+        </label>
+        <div class="media-body">
+          <h5 id="amount-mode-text" style="margin-right:20px" class="lead">100 werkwoorden (100 verbs)</h5>
+        </div>
+      </li>
+<!-- 3 -->
+      <li class="media my-4">
+        <label style="margin-right:20px" class="switch">
+          <input id="switch-mode-conj" type="checkbox">
+          <span class="slider round"></span>
+        </label>
+        <div class="media-body">
+          <h5 id="conj-mode-text" style="margin-right:20px" class="lead">Test your knowledge of conjugations?</h5>
+        </div>
+      </li>
+<!-- 3 -->
+      <li class="media">
+        <label style="margin-right:20px" class="switch">
+          <input id="switch-mode-trans" type="checkbox">
+          <span class="slider round"></span>
+        </label>
+        <div class="media-body">
+          <h5 id="trans-mode-text" style="margin-right:20px" class="lead">Test your knowledge of translations?</h5>
+        </div>
+      </li>
+<!-- end -->
+    </ul>
     <!-- <script>const data = [
       ['eat', 'ate', 'eaten', 'comer'],
       ['fly', 'flew', 'flown', 'volar'],
@@ -64,8 +108,8 @@
       ['set', 'set', 'set', 'montar']
       ];
     </script> -->
-    <script type="text/javascript" src="data/verbs_list.json"></script>
-
+    <script type="text/javascript" src="data/verbs_list_short.json"></script>
+    <script type="text/javascript" src="data/verbs_list_extended.json"></script>
     <script type="text/javascript" src="static/main.js"></script>
   </body>
 </html>
