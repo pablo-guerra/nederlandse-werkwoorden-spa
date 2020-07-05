@@ -1,6 +1,7 @@
 //initialize verb index variables
+let data = data_short;
 console.log(data);
-const verb_total_length = Object.keys(data).length;
+let verb_total_length = Object.keys(data).length;
 let current_verb_index = verb_total_length-1;
 console.log(`Number of verbs loaded = ${verb_total_length}`);
 console.log('Inf number 1 = ' + data[current_verb_index][0]);
@@ -11,8 +12,7 @@ function updateDisplayedVerbs(verb_index = current_verb_index) {
   document.getElementById("text_per").innerHTML = data[current_verb_index][2];
   document.getElementById("text_eng").innerHTML = data[current_verb_index][3];
 };
-// initialize slider variable
-let current_slider_state = false;
+// slider order variable
 function getRandomInt(min = 0, max = (verb_total_length - 1)) {
     min = Math.ceil(min);
     max = Math.floor(max);
@@ -25,25 +25,37 @@ console.log(`English button state = ${btn_english_state}`);
 console.log(`Conjugate button state = ${btn_conjugate_state}`);
 // function to hide the tiles
 function hideTiles() {
-  btn_english_state = false;
-  document.getElementById("english-translation").className = "invisible";
-  btn_conjugate_state = false;
-  document.getElementById("imperfectum").className = "invisible";
-  document.getElementById("perfectum").className = "invisible";
-};
-//slider switch
-document.getElementById("mode-switch").addEventListener("click", function(){
-  if(current_slider_state === false) {
-    current_slider_state = true;
-    document.getElementById("app-mode-text").innerHTML = 'Willekeurig';
+  if(slider_conj_state === true) {
+    btn_conjugate_state = false;
+    document.getElementById("imperfectum").className = "invisible";
+    document.getElementById("perfectum").className = "invisible";
   } else {
-    current_slider_state = false;
-    document.getElementById("app-mode-text").innerHTML = 'Alfabetisch';
+  };
+  if(slider_trans_state === true) {
+    btn_english_state = false;
+    document.getElementById("english-translation").className = "invisible";
+  } else {
+  };
+  // btn_english_state = false;
+  // document.getElementById("english-translation").className = "invisible";
+  // btn_conjugate_state = false;
+  // document.getElementById("imperfectum").className = "invisible";
+  // document.getElementById("perfectum").className = "invisible";
+};
+//slider switch order
+let slider_order_state = false;
+document.getElementById("switch-mode-order").addEventListener("click", function(){
+  if(slider_order_state === false) {
+    slider_order_state = true;
+    document.getElementById("order-mode-text").innerHTML = 'Willekeurige volgorde (Random order)';
+  } else {
+    slider_order_state = false;
+    document.getElementById("order-mode-text").innerHTML = 'Alfabetische volgorde (Alphabetical order)';
   };});
 //Switch words back and forth:
 document.getElementById("go-left").addEventListener("click", function(){
   console.log(`Current verb index is = ${current_verb_index}`);
-  if (current_slider_state === true) {
+  if (slider_order_state === true) {
     current_verb_index = getRandomInt();
   } else if (current_verb_index <0 || current_verb_index >verb_total_length-1) {
     current_verb_index = 0;
@@ -58,7 +70,7 @@ document.getElementById("go-left").addEventListener("click", function(){
 });
 document.getElementById("go-right").addEventListener("click", function(){
   console.log(`Current verb index is = ${current_verb_index}`);
-  if (current_slider_state === true) {
+  if (slider_order_state === true) {
     current_verb_index = getRandomInt();
   } else if (current_verb_index <0 || current_verb_index >verb_total_length-1) {
     current_verb_index = 0;
@@ -71,6 +83,43 @@ document.getElementById("go-right").addEventListener("click", function(){
   console.log(`New verb index is = ${current_verb_index}`);
   hideTiles();
 });
+//slider switch amount
+let slider_amount_state = false;
+document.getElementById("switch-mode-amount").addEventListener("click", function(){
+  if(slider_amount_state === false) {
+    slider_amount_state = true;
+    document.getElementById("amount-mode-text").innerHTML = '250 werkwoorden (250 verbs)';
+    data = data_extended;
+    verb_total_length = Object.keys(data).length;
+    current_verb_index = verb_total_length-1;
+  } else {
+    slider_amount_state = false;
+    document.getElementById("amount-mode-text").innerHTML = '100 werkwoorden (100 verbs)';
+    data = data_short;
+    verb_total_length = Object.keys(data).length;
+    current_verb_index = verb_total_length-1;
+  };});
+//slider switch conjugation
+let slider_conj_state = false;
+document.getElementById("switch-mode-conj").addEventListener("click", function(){
+  if(slider_conj_state === false) {
+    slider_conj_state = true;
+    document.getElementById("conj-mode-text").innerHTML = 'Knowledge test: hide conjugation of new verbs';
+  } else {
+    slider_conj_state = false;
+    document.getElementById("conj-mode-text").innerHTML = 'Test your knowledge of conjugations?';
+  };});
+//slider switch translation
+let slider_trans_state = false;
+document.getElementById("switch-mode-trans").addEventListener("click", function(){
+  if(slider_trans_state === false) {
+    slider_trans_state = true;
+    document.getElementById("trans-mode-text").innerHTML = 'Knowledge test: hide translation of new verbs';
+  } else {
+    slider_trans_state = false;
+    document.getElementById("trans-mode-text").innerHTML = 'Test your knowledge of translations?';
+  };});
+
 //Switch visibility of English translation
 document.getElementById("switch-english").addEventListener("click", function(){
   if(btn_english_state === false) {
