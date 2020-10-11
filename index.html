@@ -7,7 +7,8 @@
     <link rel="stylesheet" href="static/style.css">
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="static/bootstrap.css">
-
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     <title>Nederlandse Werkwoorden</title>
   </head>
   <body>
@@ -18,7 +19,12 @@
         <h2 style="margin-left:1%" class="">Dutch Verbs Practice</h2>
       </div>
       <br>
-
+      <div class="alert alert-info alert-dismissible fade show" role="alert">
+        <p><strong>Tip!</strong> De witte dozen zijn als flashcards. Ze laten je tot 250 verschillende Nederlandse werkwoorden zien, en hun Imperfectum en Perfectum vormen.</p><p><strong>Click left/right to change verbs! </strong>  U mag op de vier blauwe knoppen klikken en ook de onderstaande instellingen (Settings) wijzigen.</p>
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
 
       <div style="text-align:center;font-size:1.25em" class="list-group-flush">
         <div id="infinitief" class="visible"><li id="text_inf" class="list-group-item">Infinitief</li></div>
@@ -35,12 +41,12 @@
       </div>
 
       <div style="margin:1%;text-align:center;font-size:2em" class="clearfix">
-        <button id="switch-conjugation" style= "width:40%" class="btn btn-primary btn-lg-medium" type="submit">Conjugate</button>
-        <button id="switch-english" style= "width:40%" class="btn btn-primary btn-lg-medium" type="submit">Translate</button>
+        <button id="switch-conjugation" style= "width:40%;line-height: 3" class="btn btn-primary btn-lg-medium  disable-dbl-tap-zoom" type="submit">Conjugate</button>
+        <button id="switch-english" style= "width:40%;line-height: 3" class="btn btn-primary btn-lg-medium  disable-dbl-tap-zoom" type="submit">Translate</button>
       </div>
       <div style= "margin:1%;text-align:center;font-size:2em" class="clearfix">
-        <button id="go-left" style= "width:40%" class="btn btn-primary btn-lg-medium" type="submit"><</button>
-        <button id="go-right" style= "width:40%" class="btn btn-primary btn-lg-medium" type="submit">></button>
+        <button id="go-left" style= "width:40%;line-height: 3" class="btn btn-primary btn-lg-medium  disable-dbl-tap-zoom" type="submit"><</button>
+        <button id="go-right" style= "width:40%;line-height: 3" class="btn btn-primary btn-lg-medium  disable-dbl-tap-zoom" type="submit">></button>
       </div>
     </div>
     <p></p>
@@ -48,7 +54,7 @@
     <br>
     <div style="margin-left:11%" class="">
       <li class="media my-4">
-        <img class="align-self-center mr-3" src="static/menu.png" alt="menu tile">
+        <img class="align-self-center mr-3" src="static/menu.png" alt="menu tile"  width="30" height="30">
         <div style="margin-left:10px" class="media-body">
           <h2 class="">Settings</h2>
         </div>

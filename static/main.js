@@ -1,10 +1,18 @@
 //initialize verb index variables
 let data = data_short;
-console.log(data);
+// console.log(data);
 let verb_total_length = Object.keys(data).length;
 let current_verb_index = verb_total_length-1;
-console.log(`Number of verbs loaded = ${verb_total_length}`);
-console.log('Inf number 1 = ' + data[current_verb_index][0]);
+// console.log(`Number of verbs loaded = ${verb_total_length}`);
+// console.log('Inf number 1 = ' + data[current_verb_index][0]);
+//slider switch swap nl - eng modes
+let slider_ennl_state = false;
+document.getElementById("switch-mode-ennl").addEventListener("click", function(){
+  if(slider_ennl_state === false) {
+    slider_ennl_state = true;
+  } else {
+    slider_ennl_state = false;
+  };});
 //function to update the displayed text
 function updateDisplayedVerbs(verb_index = current_verb_index) {
   if(slider_ennl_state === false) {
@@ -31,6 +39,28 @@ let btn_english_state = true; // 0 means invisible
 let btn_conjugate_state = true; // 0 means invisible
 console.log(`English button state = ${btn_english_state}`);
 console.log(`Conjugate button state = ${btn_conjugate_state}`);
+//slider switch conjugation
+let slider_conj_state = false;
+document.getElementById("switch-mode-conj").addEventListener("click", function(){
+  if(slider_conj_state === false) {
+    slider_conj_state = true;
+    document.getElementById("conj-mode-text").innerHTML = 'Knowledge test: hide conjugation of new verbs';
+  } else {
+    slider_conj_state = false;
+    document.getElementById("conj-mode-text").innerHTML = 'Test your knowledge of conjugations?';
+  };});
+
+//slider switch translation
+let slider_trans_state = false;
+document.getElementById("switch-mode-trans").addEventListener("click", function(){
+  if(slider_trans_state === false) {
+    slider_trans_state = true;
+    document.getElementById("trans-mode-text").innerHTML = 'Knowledge test: hide translation of new verbs';
+  } else {
+    slider_trans_state = false;
+    document.getElementById("trans-mode-text").innerHTML = 'Test your knowledge of translations?';
+  };});
+
 // function to hide the tiles
 function hideTiles() {
   if(slider_conj_state === true) {
@@ -61,7 +91,7 @@ document.getElementById("switch-mode-order").addEventListener("click", function(
     document.getElementById("order-mode-text").innerHTML = 'Alfabetische volgorde (Alphabetical order)';
   };});
 //Switch words back and forth:
-document.getElementById("go-left").addEventListener("click", function(){
+function goToLeft(){
   console.log(`Current verb index is = ${current_verb_index}`);
   if (slider_order_state === true) {
     current_verb_index = getRandomInt();
@@ -75,8 +105,8 @@ document.getElementById("go-left").addEventListener("click", function(){
   updateDisplayedVerbs();
   console.log(`New verb index is = ${current_verb_index}`);
   hideTiles();
-});
-document.getElementById("go-right").addEventListener("click", function(){
+};
+function goToRight(){
   console.log(`Current verb index is = ${current_verb_index}`);
   if (slider_order_state === true) {
     current_verb_index = getRandomInt();
@@ -90,6 +120,16 @@ document.getElementById("go-right").addEventListener("click", function(){
   updateDisplayedVerbs();
   console.log(`New verb index is = ${current_verb_index}`);
   hideTiles();
+}
+document.getElementById("go-left").addEventListener("click", goToLeft);
+document.getElementById("go-right").addEventListener("click", goToRight);
+//Allow for right/left keyboard presses to change verbs
+document.addEventListener('keydown', (e) => {
+  // console.log(`key pressed = ${e.keyCode}`)
+  if (e.keyCode === 37) { goToLeft();
+  }
+  else if (e.keyCode === 39) { goToRight();
+  };
 });
 //slider switch amount
 let slider_amount_state = false;
@@ -106,34 +146,6 @@ document.getElementById("switch-mode-amount").addEventListener("click", function
     data = data_short;
     verb_total_length = Object.keys(data).length;
     current_verb_index = verb_total_length-1;
-  };});
-//slider switch conjugation
-let slider_conj_state = false;
-document.getElementById("switch-mode-conj").addEventListener("click", function(){
-  if(slider_conj_state === false) {
-    slider_conj_state = true;
-    document.getElementById("conj-mode-text").innerHTML = 'Knowledge test: hide conjugation of new verbs';
-  } else {
-    slider_conj_state = false;
-    document.getElementById("conj-mode-text").innerHTML = 'Test your knowledge of conjugations?';
-  };});
-//slider switch translation
-let slider_trans_state = false;
-document.getElementById("switch-mode-trans").addEventListener("click", function(){
-  if(slider_trans_state === false) {
-    slider_trans_state = true;
-    document.getElementById("trans-mode-text").innerHTML = 'Knowledge test: hide translation of new verbs';
-  } else {
-    slider_trans_state = false;
-    document.getElementById("trans-mode-text").innerHTML = 'Test your knowledge of translations?';
-  };});
-//slider switch swap nl - eng modes
-let slider_ennl_state = false;
-document.getElementById("switch-mode-ennl").addEventListener("click", function(){
-  if(slider_ennl_state === false) {
-    slider_ennl_state = true;
-  } else {
-    slider_ennl_state = false;
   };});
 
 //Switch visibility of English translation
