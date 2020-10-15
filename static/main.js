@@ -40,7 +40,7 @@ let btn_conjugate_state = true; // 0 means invisible
 console.log(`English button state = ${btn_english_state}`);
 console.log(`Conjugate button state = ${btn_conjugate_state}`);
 //slider switch conjugation
-let slider_conj_state = false;
+let slider_conj_state = true;
 document.getElementById("switch-mode-conj").addEventListener("click", function(){
   if(slider_conj_state === false) {
     slider_conj_state = true;
@@ -51,7 +51,7 @@ document.getElementById("switch-mode-conj").addEventListener("click", function()
   };});
 
 //slider switch translation
-let slider_trans_state = false;
+let slider_trans_state = true;
 document.getElementById("switch-mode-trans").addEventListener("click", function(){
   if(slider_trans_state === false) {
     slider_trans_state = true;
@@ -81,7 +81,7 @@ function hideTiles() {
   // document.getElementById("perfectum").className = "invisible";
 };
 //slider switch order
-let slider_order_state = false;
+let slider_order_state = true;
 document.getElementById("switch-mode-order").addEventListener("click", function(){
   if(slider_order_state === false) {
     slider_order_state = true;
